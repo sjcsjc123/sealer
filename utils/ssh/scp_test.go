@@ -187,7 +187,7 @@ func TestSSH_Copy(t *testing.T) {
 			"test copy dir",
 			fields{
 				User:       "root",
-				Password:   "",sftp: "Failure" (
+				Password:   "",
 				PkFile:     "",
 				PkPassword: "",
 			},
