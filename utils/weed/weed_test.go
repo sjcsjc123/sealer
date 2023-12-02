@@ -28,7 +28,7 @@ var config1 = &Config{
 	Master: []string{"192.168.0.105"},
 	Node:   []string{"192.168.0.105"},
 	User:   "root",
-	Passwd: "FlyDB2023",
+	Passwd: "123456",
 	Port:   "22",
 }
 
@@ -49,7 +49,7 @@ func TestDownloadWeedToRemoteIp(t *testing.T) {
 	assert.Nil(t, err)
 	client := ssh.NewSSHClient(&v1.SSH{
 		User:   "root",
-		Passwd: "FlyDB2023",
+		Passwd: "123456",
 		Port:   "22",
 	}, true)
 	for k, v := range cmd {
