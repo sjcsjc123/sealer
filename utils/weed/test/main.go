@@ -59,21 +59,12 @@ func startCmd() *cobra.Command {
 	}
 	cmd.Flags().StringSliceVar(&config.MasterIP, "master-ip", []string{}, "master ip list")
 	cmd.Flags().StringSliceVar(&config.VolumeIP, "volume-ip", []string{}, "volume ip list")
-	cmd.Flags().StringVar(&config.LogDir, "log-dir", "", "log dir")
-	cmd.Flags().StringVar(&config.DataDir, "data-dir", "", "data dir")
-	cmd.Flags().StringVar(&config.PidDir, "pid-dir", "", "pid dir")
 	cmd.Flags().StringVar(&config.BinDir, "bin-dir", "", "bin dir")
 	cmd.Flags().StringVar(&config.EtcdConfigPath, "etcd-config-path", "", "etcd config path")
 	cmd.Flags().StringVar(&config.CurrentIP, "current-ip", "", "current ip")
-	cmd.Flags().IntVar(&config.PeerPort, "peer-port", 0, "peer port")
-	cmd.Flags().IntVar(&config.ClientPort, "client-port", 0, "client port")
-	cmd.Flags().IntVar(&config.WeedMasterPort, "weed-master-port", 0, "weed master port")
-	cmd.Flags().IntVar(&config.WeedVolumePort, "weed-volume-port", 0, "weed volume port")
-	cmd.Flags().BoolVar(&config.NeedMoreLocalNode, "need-more-local-node", false, "need more local node")
 	cmd.Flags().StringVar(&config.WeedMasterDir, "weed-master-dir", "", "weed master dir")
 	cmd.Flags().StringVar(&config.WeedVolumeDir, "weed-volume-dir", "", "weed volume dir")
 	cmd.Flags().StringVar(&config.DefaultReplication, "default-replication", "", "default replication")
-	cmd.Flags().StringVar(&config.WeedLogDir, "weed-log-dir", "", "weed log dir")
 	return cmd
 }
 

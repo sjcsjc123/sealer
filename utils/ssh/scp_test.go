@@ -14,7 +14,13 @@
 
 package ssh
 
-/*
+import (
+	"github.com/sealerio/sealer/utils/os/fs"
+	"github.com/sirupsen/logrus"
+	"net"
+	"testing"
+)
+
 func TestSSHCopyLocalToRemote(t *testing.T) {
 	type args struct {
 		host       string
@@ -22,10 +28,10 @@ func TestSSHCopyLocalToRemote(t *testing.T) {
 		remotePath string
 	}
 	var (
-		host = "10.96.33.168"
+		host = "43.142.117.200"
 		ssh  = SSH{
 			User:       "root",
-			Password:   "123456",
+			Password:   "FlyDB2023",
 			PkFile:     "",
 			PkPassword: "",
 			Timeout:    nil,
@@ -42,8 +48,8 @@ func TestSSHCopyLocalToRemote(t *testing.T) {
 			fields: ssh,
 			args: args{
 				host,
-				"../test/file/01",
-				"/home/temp/01",
+				"/var/sealer/bin",
+				"/home/bin",
 			},
 			wantErr: false,
 		},
@@ -89,7 +95,8 @@ func TestSSHCopyLocalToRemote(t *testing.T) {
 			//	return
 			//}
 			// test copy dir
-			err := ss.Copy(tt.args.host, tt.args.localPath, tt.args.remotePath)
+			ip := net.ParseIP(tt.args.host)
+			err := ss.Copy(ip, tt.args.localPath, tt.args.remotePath)
 			if (err != nil) != tt.wantErr {
 				logrus.Error(err)
 				t.Errorf("err: %v", err)
@@ -102,7 +109,7 @@ func TestSSHCopyLocalToRemote(t *testing.T) {
 			//ss.Cmd(tt.args.host, "rm -rf "+tt.args.remotePath)
 		})
 	}
-}*/
+}
 
 //func TestSSHFetchRemoteToLocal(t *testing.T) {
 //	type args struct {
@@ -187,7 +194,7 @@ func TestSSH_Copy(t *testing.T) {
 			"test copy dir",
 			fields{
 				User:       "root",
-				Password:   "",
+				Password:   "",sftp: "Failure" (
 				PkFile:     "",
 				PkPassword: "",
 			},

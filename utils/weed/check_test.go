@@ -14,14 +14,24 @@
 
 package weed
 
-//import "testing"
-//
-//func TestCheckPort(t *testing.T) {
-//	ok := checkPort(9333)
-//	t.Log(ok)
-//}
-//
-//func TestCheckDir(t *testing.T) {
-//	ok := checkDir("/tmp")
-//	t.Log(ok)
-//}
+import (
+	"github.com/sealerio/sealer/utils/net"
+	"github.com/stretchr/testify/assert"
+	"testing"
+)
+
+func TestCheckPort(t *testing.T) {
+	ok := checkPort("127.0.0.1", 2380)
+	t.Log(ok)
+}
+
+func TestCheckBinFile(t *testing.T) {
+	ok := checkBinFile("/opt/etcd/etcd")
+	t.Log(ok)
+}
+
+func TestLocalAddress(t *testing.T) {
+	addresses, err := net.GetLocalHostAddresses()
+	assert.Nil(t, err)
+	t.Log(addresses)
+}
