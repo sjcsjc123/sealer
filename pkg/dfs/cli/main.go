@@ -17,10 +17,10 @@ package main
 import (
 	"context"
 	"errors"
+	"github.com/sealerio/sealer/pkg/dfs"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 	"os"
-	"sealer/pkg/dfs"
 )
 
 func main() {
