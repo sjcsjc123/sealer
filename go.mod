@@ -29,6 +29,7 @@ require (
 	github.com/lestrrat-go/file-rotatelogs v2.4.0+incompatible
 	github.com/libp2p/go-libp2p v0.20.3
 	github.com/libp2p/go-libp2p-core v0.16.1
+	github.com/minio/minio-go/v7 v7.0.65
 	github.com/mitchellh/go-homedir v1.1.0
 	github.com/moby/buildkit v0.9.3
 	github.com/moby/term v0.0.0-20210619224110-3f7ff695adc6
@@ -43,15 +44,15 @@ require (
 	github.com/pkg/sftp v1.13.1
 	github.com/rifflock/lfshook v0.0.0-20180920164130-b9218ef580f5
 	github.com/schollz/progressbar/v3 v3.13.1
-	github.com/sirupsen/logrus v1.9.0
+	github.com/sirupsen/logrus v1.9.3
 	github.com/spf13/cobra v1.5.0
 	github.com/spf13/viper v1.10.0
 	github.com/stretchr/testify v1.8.4
 	github.com/vishvananda/netlink v1.1.1-0.20210330154013-f5de75959ad5
-	golang.org/x/crypto v0.12.0
+	golang.org/x/crypto v0.14.0
 	golang.org/x/sync v0.3.0
-	golang.org/x/sys v0.12.0
-	golang.org/x/term v0.11.0
+	golang.org/x/sys v0.13.0
+	golang.org/x/term v0.13.0
 	gopkg.in/yaml.v2 v2.4.0
 	gopkg.in/yaml.v3 v3.0.1
 	helm.sh/helm/v3 v3.9.4
@@ -112,7 +113,7 @@ require (
 	github.com/docker/docker-credential-helpers v0.6.4 // indirect
 	github.com/docker/go-metrics v0.0.1 // indirect
 	github.com/docker/libtrust v0.0.0-20160708172513-aabc10ec26b7 // indirect
-	github.com/dustin/go-humanize v1.0.0 // indirect
+	github.com/dustin/go-humanize v1.0.1 // indirect
 	github.com/emicklei/go-restful/v3 v3.8.0 // indirect
 	github.com/evanphx/json-patch v4.12.0+incompatible // indirect
 	github.com/facebookgo/atomicfile v0.0.0-20151019160806-2de1f203e7d5 // indirect
@@ -253,7 +254,6 @@ require (
 	github.com/libp2p/go-tcp-transport v0.5.0 // indirect
 	github.com/libp2p/go-ws-transport v0.5.0 // indirect
 	github.com/libp2p/go-yamux/v2 v2.3.0 // indirect
-	github.com/libp2p/go-yamux/v3 v3.1.2 // indirect
 	github.com/libp2p/zeroconf/v2 v2.1.1 // indirect
 	github.com/liggitt/tabwriter v0.0.0-20181228230101-89fcab3d43de // indirect
 	github.com/lithammer/dedent v1.1.0 // indirect
@@ -274,6 +274,7 @@ require (
 	github.com/miekg/pkcs11 v1.1.1 // indirect
 	github.com/mikioh/tcpinfo v0.0.0-20190314235526-30a79bb1804b // indirect
 	github.com/mikioh/tcpopt v0.0.0-20190314235656-172688c1accc // indirect
+	github.com/minio/md5-simd v1.1.2 // indirect
 	github.com/minio/sha256-simd v1.0.1 // indirect
 	github.com/mistifyio/go-zfs v2.1.2-0.20190413222219-f784269be439+incompatible // indirect
 	github.com/mitchellh/colorstring v0.0.0-20190213212951-d06e56a500db // indirect
@@ -316,6 +317,7 @@ require (
 	github.com/prometheus/common v0.44.0 // indirect
 	github.com/prometheus/procfs v0.11.1 // indirect
 	github.com/rivo/uniseg v0.2.0 // indirect
+	github.com/rs/xid v1.5.0 // indirect
 	github.com/russross/blackfriday/v2 v2.1.0 // indirect
 	github.com/seccomp/libseccomp-golang v0.10.0 // indirect
 	github.com/shopspring/decimal v1.2.0 // indirect
@@ -362,9 +364,9 @@ require (
 	go.uber.org/zap v1.24.0 // indirect
 	go4.org v0.0.0-20200411211856-f5505b9728dd // indirect
 	golang.org/x/mod v0.12.0 // indirect
-	golang.org/x/net v0.14.0 // indirect
+	golang.org/x/net v0.17.0 // indirect
 	golang.org/x/oauth2 v0.8.0 // indirect
-	golang.org/x/text v0.12.0 // indirect
+	golang.org/x/text v0.13.0 // indirect
 	golang.org/x/time v0.1.0 // indirect
 	golang.org/x/tools v0.12.1-0.20230815132531-74c255bcf846 // indirect
 	golang.org/x/xerrors v0.0.0-20220907171357-04be3eba64a2 // indirect
@@ -373,7 +375,7 @@ require (
 	google.golang.org/grpc v1.53.0 // indirect
 	google.golang.org/protobuf v1.31.0 // indirect
 	gopkg.in/inf.v0 v0.9.1 // indirect
-	gopkg.in/ini.v1 v1.66.2 // indirect
+	gopkg.in/ini.v1 v1.67.0 // indirect
 	gopkg.in/square/go-jose.v2 v2.6.0 // indirect
 	gopkg.in/tomb.v1 v1.0.0-20141024135613-dd632973f1e7 // indirect
 	k8s.io/apiextensions-apiserver v0.24.2 // indirect
@@ -393,8 +395,15 @@ replace (
 	github.com/labring/lvscare => github.com/fanux/lvscare v1.1.3-beta.2.0.20220525083355-d8f3f86677d1
 	github.com/libp2p/go-libp2p => github.com/libp2p/go-libp2p v0.16.0
 	github.com/libp2p/go-libp2p-core => github.com/libp2p/go-libp2p-core v0.11.0
+	github.com/libp2p/go-libp2p-mplex => github.com/libp2p/go-libp2p-mplex v0.4.1
+	github.com/libp2p/go-libp2p-peerstore => github.com/libp2p/go-libp2p-peerstore v0.4.0
+	github.com/libp2p/go-libp2p-quic-transport => github.com/libp2p/go-libp2p-quic-transport v0.15.0
 	github.com/libp2p/go-libp2p-swarm => github.com/libp2p/go-libp2p-swarm v0.8.0
+	github.com/libp2p/go-libp2p-transport-upgrader => github.com/libp2p/go-libp2p-transport-upgrader v0.5.0
 	github.com/libp2p/go-libp2p-yamux => github.com/libp2p/go-libp2p-yamux v0.6.0
+	github.com/libp2p/go-mplex => github.com/libp2p/go-mplex v0.3.0
+	github.com/libp2p/go-tcp-transport => github.com/libp2p/go-tcp-transport v0.4.0
+	github.com/lucas-clemente/quic-go => github.com/lucas-clemente/quic-go v0.25.0
 	github.com/opencontainers/runc => github.com/opencontainers/runc v1.1.2
 	golang.org/x/net => golang.org/x/net v0.12.0
 	k8s.io/api => k8s.io/api v0.24.2
@@ -424,11 +433,4 @@ replace (
 	k8s.io/sample-apiserver => k8s.io/sample-apiserver v0.21.0
 	k8s.io/sample-cli-plugin => k8s.io/sample-cli-plugin v0.21.0
 	k8s.io/sample-controller => k8s.io/sample-controller v0.21.0
-	github.com/libp2p/go-libp2p-mplex => github.com/libp2p/go-libp2p-mplex v0.4.1
-	github.com/libp2p/go-libp2p-quic-transport => github.com/libp2p/go-libp2p-quic-transport v0.15.0
-	github.com/libp2p/go-libp2p-transport-upgrader => github.com/libp2p/go-libp2p-transport-upgrader v0.5.0
-	github.com/libp2p/go-tcp-transport => github.com/libp2p/go-tcp-transport v0.4.0
-	github.com/libp2p/go-libp2p-peerstore => github.com/libp2p/go-libp2p-peerstore v0.4.0
-	github.com/libp2p/go-mplex => github.com/libp2p/go-mplex v0.3.0
-	github.com/lucas-clemente/quic-go => github.com/lucas-clemente/quic-go v0.25.0
 )
